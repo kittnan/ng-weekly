@@ -42,6 +42,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { ShareModule } from '../share/share.module';
 
 
 let items = [
@@ -80,11 +81,13 @@ let items = [
   MatPaginatorModule,
   MatSortModule,
   MatTableModule,
-  MatNativeDateModule
+  MatNativeDateModule,
 ]
 
 @NgModule({
-  declarations: [],
+  declarations: [
+
+  ],
   imports: [
     CommonModule,
     ...items
