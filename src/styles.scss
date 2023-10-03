@@ -1,4 +1,30 @@
-@import url('./import.scss');
+@import url("./import.scss");
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.bg-1 {
+  background: url("./assets/imgs/bg-3.jpg");
+  background-size: 100%;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  object-fit: cover !important;
+  object-position: right !important;
+}
+
+.glass-1 {
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.41);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(4.4px);
+-webkit-backdrop-filter: blur(4.4px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
