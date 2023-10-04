@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
+
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class NgRefHttpService {
+export class GroupTargetHttpService {
+
   private URL: string = environment.API
-  private SUB: string = "ng-ref"
+  private SUB: string = "group-target"
   constructor(private http: HttpClient) {}
 
   create(data: any): Observable<any> {

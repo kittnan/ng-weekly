@@ -26,6 +26,20 @@ export class SubHeadComponent implements OnInit {
         }
       );
     }
+    if (this.router.url.includes('/chart')) {
+      this.items.push(
+        {
+          path: '/chart/calculate',
+          name: 'Calculate',
+          icon: '',
+        },
+        {
+          path: '/chart/view',
+          name: 'View',
+          icon: '',
+        }
+      );
+    }
   }
 
 }
