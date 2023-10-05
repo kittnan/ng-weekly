@@ -23,6 +23,11 @@ export class SubHeadComponent implements OnInit {
           path: '/admin/group-target',
           name: 'Group Target',
           icon: '',
+        },
+        {
+          path: '/admin/calendar',
+          name: 'Calendar',
+          icon: '',
         }
       );
     }

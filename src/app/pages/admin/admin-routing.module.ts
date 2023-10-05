@@ -4,6 +4,7 @@ import { AdminComponent } from './admin.component';
 import { NgRefComponent } from './ng-ref/ng-ref.component';
 import { AdminModule } from './admin.module';
 import { GroupTargetComponent } from './group-target/group-target.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'group-target',
     component:GroupTargetComponent
+  },
+  {
+    path: 'calendar',
+    component:CalendarComponent
   },
 
 ];

@@ -7,13 +7,15 @@ import { NgRefComponent } from './ng-ref/ng-ref.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ShareModule } from 'src/app/share/share.module';
 import { GroupTargetComponent } from './group-target/group-target.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
     NgRefComponent,
-    GroupTargetComponent
+    GroupTargetComponent,
+    CalendarComponent
   ],
   imports: [
     CommonModule,

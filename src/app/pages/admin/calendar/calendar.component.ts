@@ -1,38 +1,39 @@
+import { LoadCalendarService } from './../../../services/load-calendar.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import * as saveAs from 'file-saver';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { CalendarService } from 'src/app/https/calendar.service';
 import { GroupTargetHttpService } from 'src/app/https/group-target-http.service';
 import { LoadGroupTargetService } from 'src/app/services/load-group-target.service';
 import { ReadFilesService } from 'src/app/services/read-files.service';
-import { saveAs } from 'file-saver';
 import * as XLSX from 'xlsx';
 @Component({
-  selector: 'app-group-target',
-  templateUrl: './group-target.component.html',
-  styleUrls: ['./group-target.component.scss']
+  selector: 'app-calendar',
+  templateUrl: './calendar.component.html',
+  styleUrls: ['./calendar.component.scss']
 })
-export class GroupTargetComponent implements OnInit {
+export class CalendarComponent implements OnInit {
+
   displayedColumns: string[] = [
-    'groupName',
-    'model',
-    'type',
-    'planYield',
-    'targetPolaFM',
+    'date',
+    'month',
+    'CW',
   ];
   dataSource!: MatTableDataSource<any>;
   @ViewChild('fileUpload') fileUpload!: ElementRef<HTMLInputElement>;
 
   constructor(
     private $readFile: ReadFilesService,
-    private $loadGroupTarget: LoadGroupTargetService,
-    private $groupTarget:GroupTargetHttpService,
+    private $loadCalendar: LoadCalendarService,
+    private $calendar:CalendarService,
     private $loader: NgxUiLoaderService,
   ) { }
 
   async ngOnInit(): Promise<void> {
     try {
       this.$loader.start()
-      const res = await this.$groupTarget.get().toPromise();
+      const res = await this.$calendar.get().toPromise();
       this.dataSource = new MatTableDataSource(res);
       this.$loader.stop()
     } catch (error) {
@@ -58,7 +59,7 @@ export class GroupTargetComponent implements OnInit {
       reader.onload = async (e: any) => {
         const base64Data = e.target.result;
         const uint8Array = this.$readFile.base64ToArrayBuffer(base64Data);
-        const arr = await this.$loadGroupTarget.loadExcelWorkbook(uint8Array);
+        const arr = await this.$loadCalendar.loadExcelWorkbook(uint8Array);
         // console.log("🚀 ~ arr:", arr)
         this.create(arr)
       };
@@ -68,8 +69,8 @@ export class GroupTargetComponent implements OnInit {
   private async create(arr: any) {
     try {
       const dataCreate = arr
-      await this.$groupTarget.create(dataCreate).toPromise()
-      location.reload()
+      await this.$calendar.create(dataCreate).toPromise()
+      // location.reload()
     } catch (error) {
       console.log("🚀 ~ error:", error)
       location.reload()
@@ -78,15 +79,16 @@ export class GroupTargetComponent implements OnInit {
 
   async handleDownload() {
     try {
-      const wb: any = await this.$groupTarget.download().toPromise();
+      const wb: any = await this.$calendar.download().toPromise();
       var dataArray = XLSX.write(wb, { type: 'array', bookType: 'xlsx' });
       var url = URL.createObjectURL(
         new Blob([dataArray], { type: 'application/octet-stream' })
       );
-      saveAs.saveAs(url,'group-target-template.xlsx')
+      saveAs.saveAs(url,'calendar-template.xlsx')
     } catch (error) {
       console.log('🚀 ~ error:', error);
     }
   }
+
 
 }
