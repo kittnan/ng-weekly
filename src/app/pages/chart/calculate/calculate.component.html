@@ -1,4 +1,62 @@
 <div class="w-100" fxLayout="row wrap" fxLayoutAlign="center stretch">
   <app-sub-head fxFlex="100"></app-sub-head>
-  <button mat-button (click)="handleCal()">Action</button>
+  <div
+    fxFlex="100"
+    fxLayout="row wrap"
+    fxLayoutAlign="center start"
+    class="p-3 mt-2 glass-1"
+  >
+    <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="start start">
+      <mat-form-field fxFlex="40" appearance="standard">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input />
+      </mat-form-field>
+      <div class="flex-1"></div>
+
+      <button
+        mat-raised-button
+        class="me-2 mb-2 bg-sky-200 text-rose-600"
+        (click)="handleCal()"
+      >
+        <div class="d-flex align-items-center">
+          <span class="material-icons-outlined me-2"> folder </span>
+          <span> CALCULATE </span>
+        </div>
+      </button>
+    </div>
+    <div fxFlex="100" class="overflow-auto">
+      <table
+        fxFlex="100"
+        mat-table
+        [dataSource]="dataSource"
+        class="bg-inherit"
+      >
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element["date"] | date : "dd-MMM-YYYY" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="month">
+          <th mat-header-cell *matHeaderCellDef>Month</th>
+          <td mat-cell *matCellDef="let element">{{ element["month"] }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="CW">
+          <th mat-header-cell *matHeaderCellDef>CW</th>
+          <td mat-cell *matCellDef="let element">{{ element.CW }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">
+            No data matching the filter "{{ input.value }}"
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>

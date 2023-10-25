@@ -7,21 +7,21 @@ import { ViewComponent } from './view/view.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'calculate',
-    pathMatch: 'full'
+    redirectTo: 'view',
+    pathMatch: 'full',
   },
   {
     path: 'calculate',
-    component:CalculateComponent
+    component: CalculateComponent,
   },
   {
     path: 'view',
-    component:ViewComponent
+    component: ViewComponent,
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ChartRoutingModule { }
+export class ChartRoutingModule {}

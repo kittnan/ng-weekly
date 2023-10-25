@@ -1,13 +1,12 @@
 <mat-toolbar class="bg-orange-400">
-  <div class="d-flex  flex-wrap justify-content-start">
+  <div class="d-flex flex-wrap justify-content-start">
     <button mat-icon-button class="w-100">
       <div class="flex">
         <span class="font-extrabold text-3xl text-red-600"> KTC </span>
       </div>
     </button>
-    <span class="text-lg" > NG Weekly </span>
+    <span class="text-lg"> NG Weekly </span>
   </div>
-
 
   <a
     [routerLink]="['/admin']"
@@ -42,7 +41,11 @@
     <mat-icon>share</mat-icon>
   </button>
 </mat-toolbar>
-<div fxLayout="row wrap" fxLayoutAlign="center start" class="bg-1 p-8 h-full">
+<div
+  fxLayout="row wrap"
+  fxLayoutAlign="center start"
+  class="bg-1 h-full w-full p-2"
+>
   <router-outlet></router-outlet>
 </div>
 <ngx-ui-loader [fgsSize]="75"></ngx-ui-loader>

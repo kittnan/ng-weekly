@@ -1,0 +1,13 @@
+<div
+  fxFlex="100"
+  fxLayout="row wrap"
+  fxLayoutAlign="start stretch"
+  class="bg-slate-100 p-1"
+>
+  <ng-container *ngFor="let item of data; let i = index">
+    <div
+      id="chart{{ i }}"
+      style="width: 100%; height: 500px; margin-top: 3rem"
+    ></div>
+  </ng-container>
+</div>
