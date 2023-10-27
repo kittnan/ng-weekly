@@ -1,14 +1,9 @@
-.head-link :hover{
+.head-link :hover {
   transition: ease 0.25s;
   opacity: 80%;
   color: red;
-  font-weight: 900;
-
-
-
-
+  // font-weight: 900;
 }
-
 
 html {
   height: 100%;
@@ -17,8 +12,8 @@ html {
   place-items: center;
 }
 
-.is-active{
+.is-active {
   opacity: 80%;
   color: red;
-  font-weight: 900;
+  // font-weight: 900;
 }

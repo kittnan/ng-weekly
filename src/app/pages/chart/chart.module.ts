@@ -7,17 +7,15 @@ import { CalculateComponent } from './calculate/calculate.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ShareModule } from 'src/app/share/share.module';
 import { ViewComponent } from './view/view.component';
-import { NoGroupChartComponent } from './view/components/no-group-chart/no-group-chart.component';
-import { GroupChartComponent } from './view/components/group-chart/group-chart.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [
-    ChartComponent,
-    CalculateComponent,
-    ViewComponent,
-    NoGroupChartComponent,
-    GroupChartComponent,
+  declarations: [ChartComponent, CalculateComponent, ViewComponent],
+  imports: [
+    CommonModule,
+    ChartRoutingModule,
+    FlexLayoutModule,
+    ShareModule,
+    FormsModule,
   ],
-  imports: [CommonModule, ChartRoutingModule, FlexLayoutModule, ShareModule],
 })
 export class ChartModule {}

@@ -7,22 +7,22 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'chart',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'chart',
     loadChildren: () => ChartModule,
-    canActivate: []
+    canActivate: [],
   },
   {
     path: 'admin',
     loadChildren: () => AdminModule,
-    canActivate: []
+    canActivate: [],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

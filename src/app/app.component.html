@@ -9,18 +9,6 @@
   </div>
 
   <a
-    [routerLink]="['/admin']"
-    routerLinkActive="is-active"
-    class="cursor-pointer me-3 head-link"
-  >
-    <div class="d-flex">
-      <span class="material-icons-outlined me-1" style="line-height: 23px">
-        portrait
-      </span>
-      <span class="text-base"> ADMIN </span>
-    </div>
-  </a>
-  <a
     [routerLink]="['/chart']"
     routerLinkActive="is-active"
     class="cursor-pointer me-3 head-link"
@@ -32,20 +20,26 @@
       <span> Chart </span>
     </div>
   </a>
+  <a
+    [routerLink]="['/admin']"
+    (click)="handleAdminMode()"
+    routerLinkActive="is-active"
+    class="cursor-pointer me-3 head-link"
+  >
+    <div class="d-flex">
+      <span class="material-icons-outlined me-1" style="line-height: 23px">
+        portrait
+      </span>
+      <span class="text-base"> ADMIN </span>
+    </div>
+  </a>
 
   <span class="flex-1"></span>
-  <button mat-icon-button>
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button>
-    <mat-icon>share</mat-icon>
+  <button mat-icon-button (click)="handleAdminMode()">
+    <mat-icon>settings</mat-icon>
   </button>
 </mat-toolbar>
-<div
-  fxLayout="row wrap"
-  fxLayoutAlign="center start"
-  class="bg-1 h-full w-full p-2"
->
-  <router-outlet></router-outlet>
-</div>
+
+<router-outlet class="w-100"></router-outlet>
+
 <ngx-ui-loader [fgsSize]="75"></ngx-ui-loader>

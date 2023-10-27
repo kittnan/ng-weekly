@@ -1,6 +1,6 @@
 {
   "name": "ng-weekly",
-  "version": "0.0.5",
+  "version": "0.0.9",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -22,6 +22,7 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@sweetalert2/themes": "^5.0.15",
     "bootstrap": "^5.3.2",
     "echarts": "^5.4.3",
     "exceljs": "^4.3.0",

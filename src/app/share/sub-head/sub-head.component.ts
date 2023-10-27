@@ -46,5 +46,4 @@ export class SubHeadComponent implements OnInit {
       );
     }
   }
-
 }

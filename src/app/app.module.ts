@@ -8,6 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material/material.module';
 import { ShareModule } from './share/share.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import {
   NgxUiLoaderConfig,
   NgxUiLoaderHttpModule,
@@ -28,7 +29,6 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   pbDirection: PB_DIRECTION.leftToRight, // progress bar direction
   pbThickness: 5, // progress bar thickness,
   overlayColor: 'rgba(252,185,159,0.96)',
-
 };
 @NgModule({
   declarations: [AppComponent],
@@ -36,6 +36,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     FlexLayoutModule,
     ShareModule,
     HttpClientModule,

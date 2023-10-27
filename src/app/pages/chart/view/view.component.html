@@ -1,20 +1,66 @@
-<div
-  class="w-100"
-  fxLayout="row wrap"
-  fxLayoutAlign="center stretch"
-  style="width: 100vh !important"
->
-  <app-sub-head fxFlex="100"></app-sub-head>
-  <!-- <app-group-chart *ngIf="data2" fxFlex="100" [data]="data2"></app-group-chart>
-  <app-no-group-chart
-    *ngIf="data"
-    fxFlex="100"
-    [data]="data"
-  ></app-no-group-chart> -->
-  <ng-container *ngFor="let item of chartData; let i = index">
+<div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center stretch">
+  <div fxFlex="60" fxLayout="row wrap" fxLayoutAlign="start stretch">
+    <app-sub-head fxFlex="100"></app-sub-head>
     <div
-      id="chart{{ i }}"
-      style="width: 100%; height: 500px; margin-top: 3rem"
-    ></div>
-  </ng-container>
+      fxFlex="100"
+      fxLayout="row wrap"
+      fxLayoutAlign="center start"
+      class="p-3 mt-2 glass-1"
+    >
+      <ng-container *ngIf="chartDataOption">
+        <div
+          class="mb-36"
+          fxFlex="100"
+          fxLayout="row wrap"
+          fxLayoutAlign="center start"
+          style="height: 70vh"
+          *ngFor="let item of chartDataOption; let i = index"
+        >
+          <div
+            fxFlex="100"
+            id="chart{{ i }}"
+            style="width: 100%; height: 100%; margin-top: 3rem"
+          ></div>
+          <div
+            fxFlex="100"
+            fxLayout="row wrap"
+            fxLayoutAlign="end start"
+            class="me-4"
+          >
+            <label>Y1 Max: </label>
+
+            <input
+              type="number"
+              class="bg-red-400 me-4"
+              (change)="handleMax(i, $event, 0)"
+              [(ngModel)]="item.yAxis[0].max"
+            />
+            <label>Y1 Min: </label>
+            <input
+              type="number"
+              class="bg-red-400 me-4"
+              (change)="handleMin(i, $event, 0)"
+              [(ngModel)]="item.yAxis[0].min"
+            />
+
+            <label>Y2 Max: </label>
+            <input
+              type="number"
+              class="bg-red-400 me-4"
+              (change)="handleMax(i, $event, 1)"
+              [(ngModel)]="item.yAxis[1].max"
+            />
+            <label>Y2 Min: </label>
+            <input
+              type="number"
+              class="bg-red-400 me-4"
+              (change)="handleMin(i, $event, 1)"
+              [(ngModel)]="item.yAxis[1].min"
+            />
+          </div>
+          <mat-divider fxFlex="100"></mat-divider>
+        </div>
+      </ng-container>
+    </div>
+  </div>
 </div>

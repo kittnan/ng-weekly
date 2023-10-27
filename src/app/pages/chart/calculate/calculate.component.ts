@@ -1,15 +1,16 @@
+import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { CalculateService } from 'src/app/https/calculate.service';
 import Swal from 'sweetalert2';
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-calculate',
   templateUrl: './calculate.component.html',
   styleUrls: ['./calculate.component.scss'],
 })
 export class CalculateComponent implements OnInit {
-  displayedColumns: string[] = ['date', 'month', 'CW'];
+  displayedColumns: string[] = ['date', 'model', 'CW'];
   dataSource!: MatTableDataSource<any>;
   constructor(private $calculate: CalculateService) {}
 
@@ -23,7 +24,10 @@ export class CalculateComponent implements OnInit {
   }
   async handleCal() {
     try {
-      const res = await this.$calculate.calculate().toPromise();
+      let date = moment().format('YYYY-MM-DD');
+      const res = await this.$calculate
+        .cal(new HttpParams().set('date', date))
+        .toPromise();
       Swal.fire({
         title: 'SUCCESS',
         icon: 'success',

@@ -1,8 +1,17 @@
-<div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="start end" class="card p-2 bg-slate-400">
-  <ng-container *ngFor="let item of items; let i=index">
-    <a [routerLink]="[item.path]" routerLinkActive="is-active"  class="cursor-pointer" >
-      <button mat-raised-button  class="me-2 mb-2">
-        <span >{{item.name}}</span>
+<div
+  fxFlex="100"
+  fxLayout="row wrap"
+  fxLayoutAlign="start end"
+  class="card p-2 bg-slate-400 mt-3"
+>
+  <ng-container *ngFor="let item of items; let i = index">
+    <a
+      [routerLink]="[item.path]"
+      routerLinkActive="is-active"
+      class="cursor-pointer"
+    >
+      <button mat-raised-button class="me-2 mb-2">
+        <span>{{ item.name }}</span>
       </button>
     </a>
   </ng-container>
