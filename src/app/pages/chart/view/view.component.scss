@@ -1,3 +1,7 @@
 input {
   width: 100px !important;
+  text-align: left; /* Reset text alignment */
+  padding: 5px 10px; /* Adjust the padding to center the text vertically */
+  line-height: 1; /* Set the line-height to match the height of the input */
+  text-align: center; /* Center the text */
 }

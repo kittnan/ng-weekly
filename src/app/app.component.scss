@@ -1,8 +1,16 @@
 .head-link :hover {
   transition: ease 0.25s;
-  opacity: 80%;
-  color: red;
+  color: #df0523;
+  background-color: rgb(7, 7, 7);
   // font-weight: 900;
+  border-radius: 30px;
+}
+.head-link {
+  width: 100px;
+}
+
+.head-link > div {
+  padding: 0 5px;
 }
 
 html {
@@ -16,4 +24,40 @@ html {
   opacity: 80%;
   color: red;
   // font-weight: 900;
+}
+.font-2 {
+  font-weight: 900;
+}
+.container-top {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  // justify-self: end;
+  justify-content: center;
+  position: sticky;
+  left: calc(100% - 44px);
+  top: calc(100% - 60px);
+  background: #ff8b24;
+  border-radius: 10px;
+  z-index: 999;
+  transform: rotate(-90deg);
+  cursor: pointer;
+}
+
+footer {
+  background-color: initial;
+  height: 1px;
+  width: 100%;
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  z-index: 999;
+  text-align: right;
+}
+
+footer p {
+  font-size: 10px;
+  margin-right: 10px;
+  color: #3b3b3b;
 }

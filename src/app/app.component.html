@@ -1,36 +1,42 @@
-<mat-toolbar class="bg-orange-400">
-  <div class="d-flex flex-wrap justify-content-start">
+<mat-toolbar class="bg-orange-300">
+  <div class="d-flex flex-wrap justify-content-start me-4">
     <button mat-icon-button class="w-100">
       <div class="flex">
-        <span class="font-extrabold text-3xl text-red-600"> KTC </span>
+        <!-- <span class="font-extrabold text-3xl text-red-600"> KTC </span> -->
+        <img
+          src="./assets/logo2.png"
+          alt=""
+          style="width: 225px; height: 52px"
+          class="pb-1"
+        />
       </div>
     </button>
-    <span class="text-lg"> NG Weekly </span>
+    <!-- <span class="text-lg"> NG Weekly </span> -->
   </div>
 
   <a
     [routerLink]="['/chart']"
     routerLinkActive="is-active"
-    class="cursor-pointer me-3 head-link"
+    class="cursor-pointer me-3 head-link h-100"
   >
-    <div class="d-flex">
+    <div fxLayoutAlign="center center" class="d-flex h-100">
       <span class="material-icons-outlined me-1" style="line-height: 32px">
         leaderboard
       </span>
-      <span> Chart </span>
+      <span class="font-2"> Home </span>
     </div>
   </a>
   <a
     [routerLink]="['/admin']"
     (click)="handleAdminMode()"
     routerLinkActive="is-active"
-    class="cursor-pointer me-3 head-link"
+    class="cursor-pointer me-3 head-link h-100"
   >
-    <div class="d-flex">
+    <div fxLayoutAlign="center center" class="d-flex h-100">
       <span class="material-icons-outlined me-1" style="line-height: 23px">
         portrait
       </span>
-      <span class="text-base"> ADMIN </span>
+      <span class="text-base font-2"> Manage </span>
     </div>
   </a>
 
@@ -40,6 +46,12 @@
   </button>
 </mat-toolbar>
 
-<router-outlet class="w-100"></router-outlet>
+<div class="container-top" (click)="scrollToTop()">
+  <a class="top"> ➤ </a>
+</div>
+<router-outlet class="w-100"> </router-outlet>
 
 <ngx-ui-loader [fgsSize]="75"></ngx-ui-loader>
+<footer>
+  <p>Services Tel: 1800, 1801 About: IT-SD, Kyocera Thailand © 2023</p>
+</footer>

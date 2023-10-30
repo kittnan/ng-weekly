@@ -7,6 +7,19 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: url("./assets/imgs/bg2.png");
+  background-size: 100%;
+  background-position: center !important;
+  background-repeat: repeat-y !important;
+  background-size: cover !important;
+  object-fit: cover !important;
+  object-position: right !important;
+
+  display: grid;
+  grid-template-columns: auto 0px;
+}
+body > * {
+  font-weight: 600;
 }
 
 // .bg-1 {
@@ -21,13 +34,22 @@ body {
 
 .glass-1 {
   /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.41);
+  background: rgb(255, 255, 255);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4.4px);
   -webkit-backdrop-filter: blur(4.4px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
+// .glass-1 {
+//   /* From https://css.glass */
+//   background: rgba(255, 255, 255, 0.41);
+//   border-radius: 16px;
+//   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+//   backdrop-filter: blur(4.4px);
+//   -webkit-backdrop-filter: blur(4.4px);
+//   border: 1px solid rgba(255, 255, 255, 0.3);
+// }
 div:where(.swal2-container).swal2-backdrop-show,
 div:where(.swal2-container).swal2-noanimation {
   background: rgb(255 197 197 / 40%) !important;
