@@ -1,7 +1,8 @@
 import { Component, Inject, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertResult } from 'sweetalert2';
 import { Location, DOCUMENT } from '@angular/common';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +10,7 @@ import { Location, DOCUMENT } from '@angular/common';
 })
 export class AppComponent {
   title = 'ng-weekly';
-
+  appVersion: any = environment.appVersion;
   constructor(
     private router: Router,
     private _location: Location,
@@ -22,28 +23,33 @@ export class AppComponent {
   }
 
   async handleAdminMode() {
-    const { value: password } = await Swal.fire({
+    Swal.fire({
       title: 'Enter your password',
       input: 'password',
       inputLabel: 'Password',
       inputPlaceholder: 'Enter your password',
       showCancelButton: true,
-    });
-
-    if (password && password == 'password') {
-      this.router.navigate(['admin']);
-      // Swal.fire(`Entered password: ${password}`);
-    } else {
-      Swal.fire({
-        title: 'Password not correct!!',
-        icon: 'error',
-        showConfirmButton: false,
-        timer: 1500,
-      }).then(() => {
-        // this._location.back();
+    }).then((v: SweetAlertResult) => {
+      if (v.isConfirmed) {
+        const password = v.value;
+        if (password && password == 'password') {
+          this.router.navigate(['admin']);
+          // Swal.fire(`Entered password: ${password}`);
+        } else {
+          Swal.fire({
+            title: 'Password not correct!!',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(() => {
+            // this._location.back();
+            this.router.navigate(['chart/calculate']);
+          });
+        }
+      } else {
         this.router.navigate(['chart/calculate']);
-      });
-    }
+      }
+    });
   }
 
   scrollToTop() {

@@ -30,7 +30,7 @@ export class ViewComponent implements OnInit {
       const optionCharts: EChartsOption[] = allDataChart.map((a: any) => {
         a.series = a.series.map((s: any) => {
           if (s.type == 'bar') {
-            s.barMaxWidth = 100;
+            s.barMaxWidth = 70;
             s.label = {
               distance: 30,
               show: true,
