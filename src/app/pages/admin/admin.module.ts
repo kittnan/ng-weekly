@@ -8,20 +8,16 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ShareModule } from 'src/app/share/share.module';
 import { GroupTargetComponent } from './group-target/group-target.component';
 import { CalendarComponent } from './calendar/calendar.component';
-
+import { CalculateComponent } from './calculate/calculate.component';
 
 @NgModule({
   declarations: [
     AdminComponent,
     NgRefComponent,
     GroupTargetComponent,
-    CalendarComponent
+    CalendarComponent,
+    CalculateComponent,
   ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    FlexLayoutModule,
-    ShareModule
-  ]
+  imports: [CommonModule, AdminRoutingModule, FlexLayoutModule, ShareModule],
 })
-export class AdminModule { }
+export class AdminModule {}

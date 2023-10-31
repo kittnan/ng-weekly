@@ -17,33 +17,31 @@ export class SubHeadComponent implements OnInit {
         {
           path: '/admin/ng-ref',
           name: 'NG REF',
-          icon: '',
+          icon: 'fact_check',
         },
         {
           path: '/admin/group-target',
-          name: 'Group Target',
-          icon: '',
+          name: 'Group',
+          icon: 'group_work',
         },
         {
           path: '/admin/calendar',
           name: 'Calendar',
-          icon: '',
+          icon: 'event_available',
+        },
+        {
+          path: '/admin/calculate',
+          name: 'Calculate',
+          icon: 'calculate',
         }
       );
     }
     if (this.router.url.includes('/chart')) {
-      this.items.push(
-        {
-          path: '/chart/calculate',
-          name: 'Calculate',
-          icon: '',
-        },
-        {
-          path: '/chart/view',
-          name: 'View',
-          icon: '',
-        }
-      );
+      // this.items.push({
+      //   path: '/chart/view',
+      //   name: 'View',
+      //   icon: '',
+      // });
     }
   }
 }

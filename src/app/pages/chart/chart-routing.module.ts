@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ChartComponent } from './chart.component';
-import { CalculateComponent } from './calculate/calculate.component';
 import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
@@ -10,10 +8,7 @@ const routes: Routes = [
     redirectTo: 'view',
     pathMatch: 'full',
   },
-  {
-    path: 'calculate',
-    component: CalculateComponent,
-  },
+
   {
     path: 'view',
     component: ViewComponent,

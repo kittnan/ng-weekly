@@ -32,20 +32,58 @@ export class ViewComponent implements OnInit {
           if (s.type == 'bar') {
             s.barMaxWidth = 70;
             s.label = {
-              distance: 30,
+              distance: 10,
               show: true,
-              offset: [0, -30],
+              // offset: [0, -30],
               position: 'right',
               // padding: [10, 10, 10, 10],
               formatter: function (param: any) {
                 return param.data ? param.data + '%' : param.data;
               },
-              fontSize: 14,
+              fontSize: 8,
               color: '#000',
+              width: 100,
+              height: 100,
             };
             s.labelLine = {
               show: true,
             };
+            // s.barMinHeight = 50;
+            // s.labelLayout = function () {
+            //   return {
+            //     x: 10,
+            //     moveOverlap: 'shiftY',
+            //   };
+            // };
+            // if (s.name == 'Mat Cause') {
+            //   s.label.rotate = 80;
+            // }
+            // if (s.name == 'Array Cause') {
+            //   s.label.rotate = 60;
+            // }
+
+            // a.yAxis[0] = {
+            //   ...a.yAxis[0],
+            //   maxInterval: 10,
+            //   minInterval: 0.1,
+            //   min: 0,
+            //   max: 50,
+            //   scale: true,
+            //   axisLine: {
+            //     show: true,
+            //   },
+            // };
+            // a.yAxis[1] = {
+            //   ...a.yAxis[1],
+            //   maxInterval: 10,
+            //   minInterval: 0.1,
+            //   min: 0,
+            //   max: 50,
+            //   scale: true,
+            //   axisLine: {
+            //     show: true,
+            //   },
+            // };
           } else {
             if (s.name == 'ST Yield') {
               s.label = {
@@ -53,7 +91,7 @@ export class ViewComponent implements OnInit {
                 formatter: function (param: any) {
                   return param.data ? param.data + '%' : param.data;
                 },
-                fontSize: 14,
+                fontSize: 8,
                 color: '#FF0000',
                 fontWeight: 'bold',
               };
@@ -63,7 +101,7 @@ export class ViewComponent implements OnInit {
                 formatter: function (param: any) {
                   return param.data ? param.data + '%' : param.data;
                 },
-                fontSize: 14,
+                fontSize: 8,
                 color: '#000',
               };
               s.color = '#000';
@@ -73,7 +111,7 @@ export class ViewComponent implements OnInit {
                 formatter: function (param: any) {
                   return param.data ? param.data + '%' : param.data;
                 },
-                fontSize: 14,
+                fontSize: 8,
               };
             }
           }

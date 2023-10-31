@@ -5,30 +5,34 @@ import { NgRefComponent } from './ng-ref/ng-ref.component';
 import { AdminModule } from './admin.module';
 import { GroupTargetComponent } from './group-target/group-target.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { CalculateComponent } from './calculate/calculate.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'ng-ref',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'ng-ref',
-    component:NgRefComponent
+    component: NgRefComponent,
   },
   {
     path: 'group-target',
-    component:GroupTargetComponent
+    component: GroupTargetComponent,
   },
   {
     path: 'calendar',
-    component:CalendarComponent
+    component: CalendarComponent,
   },
-
+  {
+    path: 'calculate',
+    component: CalculateComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

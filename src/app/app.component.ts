@@ -43,13 +43,27 @@ export class AppComponent {
             timer: 1500,
           }).then(() => {
             // this._location.back();
-            this.router.navigate(['chart/calculate']);
+            this.router.navigate(['chart/view']);
           });
         }
       } else {
-        this.router.navigate(['chart/calculate']);
+        this.router.navigate(['chart/view']);
       }
     });
+  }
+  handleDownloadManual() {
+    const src = 'http://10.200.90.152:8081/ng-weekly/assets/manual.xlsx';
+    let element: any = document.createElement('a');
+    element.download = 'manual.xlsx';
+    element.href = src;
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  }
+  handleViewManual() {
+    let url =
+      'https://kyoceracoth-my.sharepoint.com/:x:/r/personal/kittinan-k_kyocera_co_th/Documents/documentWEB/NG-Weekly/manual.xlsx?d=wf2ab274c28af423bb15519c07398793b&csf=1&web=1&e=Qp7wMr';
+    window.open(url, '_blank');
   }
 
   scrollToTop() {

@@ -44,7 +44,17 @@
   <span class="fs-6">
     {{ appVersion }}
   </span>
-  <button mat-icon-button (click)="handleAdminMode()">
+  <button
+    mat-icon-button
+    (click)="handleDownloadManual()"
+    title="download manual"
+  >
+    <mat-icon>play_lesson</mat-icon>
+  </button>
+  <button mat-icon-button (click)="handleViewManual()" title="view manual">
+    <mat-icon>cloud</mat-icon>
+  </button>
+  <button mat-icon-button (click)="handleAdminMode()" title="admin mode">
     <mat-icon>settings</mat-icon>
   </button>
 </mat-toolbar>
