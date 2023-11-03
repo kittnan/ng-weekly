@@ -5,6 +5,8 @@ import * as echarts from 'echarts';
 import { combineLatestAll } from 'rxjs';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
+import Swal from 'sweetalert2';
 type EChartsOption = echarts.EChartsOption;
 type ECharts = echarts.ECharts;
 
@@ -25,7 +27,8 @@ export class ViewComponent implements OnInit {
   temp = 1;
   constructor(
     private $calculate: CalculateService,
-    private $chart: ChartHttpService
+    private $chart: ChartHttpService,
+    private $loader: NgxUiLoaderService
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -320,27 +323,59 @@ export class ViewComponent implements OnInit {
   }
 
   handleExportPDF(i: number, name: any) {
-    const doc = new jsPDF({
-      orientation: 'landscape',
-      unit: 'mm',
-      compress: true,
-      format: 'a4',
-    });
-    let html: any = document.getElementById(`print${i}`);
-    html2canvas(html, {}).then(function (canvas) {
-      const image: any = canvas.toDataURL('png', 2);
-      doc.addImage(image, 'PNG', 10, 25, 280, 150);
-      doc.save(`${name}.pdf`);
-    });
+    try {
+      this.$loader.start();
+      setTimeout(() => {
+        const doc = new jsPDF({
+          orientation: 'landscape',
+          unit: 'mm',
+          compress: true,
+          format: 'a4',
+        });
+        let html: any = document.getElementById(`print${i}`);
+        html2canvas(html).then(function (canvas) {
+          const image: any = canvas.toDataURL('png', 2);
+          doc.addImage(image, 'PNG', 10, 25, 280, 150);
+          doc.save(`${name}.pdf`);
+        });
+      }, 300);
+    } catch (error) {
+      console.log('🚀 ~ error:', error);
+      this.$loader.stop();
+      Swal.fire({
+        title: 'Error',
+        icon: 'error',
+      });
+    } finally {
+      setTimeout(() => {
+        this.$loader.stop();
+      }, 300);
+    }
   }
   handleExportIMG(i: number, name: any) {
-    let html: any = document.getElementById(`print${i}`);
-    html2canvas(html, {}).then(function (canvas) {
-      const image: any = canvas.toDataURL('png', 2);
-      const a = document.createElement('a');
-      a.setAttribute('download', `${name}.png`);
-      a.setAttribute('href', image);
-      a.click();
-    });
+    try {
+      this.$loader.start();
+      setTimeout(() => {
+        let html: any = document.getElementById(`print${i}`);
+        html2canvas(html, {}).then(function (canvas) {
+          const image: any = canvas.toDataURL('png', 2);
+          const a = document.createElement('a');
+          a.setAttribute('download', `${name}.png`);
+          a.setAttribute('href', image);
+          a.click();
+        });
+      }, 300);
+    } catch (error) {
+      console.log('🚀 ~ error:', error);
+      this.$loader.stop();
+      Swal.fire({
+        title: 'Error',
+        icon: 'error',
+      });
+    } finally {
+      setTimeout(() => {
+        this.$loader.stop();
+      }, 300);
+    }
   }
 }
