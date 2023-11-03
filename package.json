@@ -1,6 +1,6 @@
 {
   "name": "ng-weekly",
-  "version": "0.0.12",
+  "version": "0.0.15",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -27,6 +27,8 @@
     "echarts": "^5.4.3",
     "exceljs": "^4.3.0",
     "file-saver": "^2.0.5",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "material-icons": "^1.13.12",
     "moment": "^2.29.4",
     "ngx-ui-loader": "^13.0.0",

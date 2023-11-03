@@ -5,3 +5,24 @@ input {
   line-height: 1; /* Set the line-height to match the height of the input */
   text-align: center; /* Center the text */
 }
+thead {
+  border-collapse: separate;
+  border: 1px solid;
+  padding: 5px;
+}
+tbody {
+  border-collapse: separate;
+  border: 1px solid;
+  font-weight: normal;
+}
+
+th {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid;
+}
+
+td {
+  padding: 3px 10px;
+  border-right: 1px solid black;
+}
