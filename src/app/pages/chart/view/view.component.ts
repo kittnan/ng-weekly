@@ -41,17 +41,8 @@ export class ViewComponent implements OnInit {
       const optionCharts: EChartsOption[] = allDataChart.map((a: any) => {
         const total = this.totalModel(a);
         a.yAxis[1].max = Math.ceil(total) * 1.5;
-        // a.yAxis[0].splitNumber = 1;
-        a.yAxis[0].show = false;
-        a.yAxis[0].axisLabel = {
-          color: 'rgba(0, 0, 0, 1)',
-          fontWeight: 'bold',
-        };
+        a.yAxis[1].min = 0;
         a.yAxis[1].axisLabel = {
-          color: 'rgba(0, 0, 0, 1)',
-          fontWeight: 'bold',
-        };
-        a.xAxis[0].axisLabel = {
           color: 'rgba(0, 0, 0, 1)',
           fontWeight: 'bold',
         };
@@ -59,6 +50,23 @@ export class ViewComponent implements OnInit {
           color: 'rgba(0, 0, 0, 1)',
           fontWeight: 'bold',
         };
+
+        a.yAxis[0].splitNumber = 1;
+        a.yAxis[0].min = 0;
+        a.yAxis[0].show = true;
+        a.yAxis[0].axisLabel = {
+          color: 'rgba(0, 0, 0, 1)',
+          fontWeight: 'bold',
+          formatter: function (param: any) {
+            return '';
+          },
+        };
+
+        a.xAxis[0].axisLabel = {
+          color: 'rgba(0, 0, 0, 1)',
+          fontWeight: 'bold',
+        };
+
         a.legend = {
           textStyle: {
             // fontWeight: 'bold',
@@ -165,7 +173,7 @@ export class ViewComponent implements OnInit {
           this.chartData[index] = echarts.init(chartContainer);
           this.chartData[index].setOption(option);
         }
-      }, 1);
+      }, 1000);
     } catch (error) {
       console.log('🚀 ~ error:', error);
     }
@@ -287,13 +295,17 @@ export class ViewComponent implements OnInit {
   compareClass(key: any, tableBody: any, indexCol: number, value: any) {
     if (indexCol >= 1) {
       if (key == 'Yield') {
-        if (value >= tableBody[0][indexCol]) return 'text-green-500';
-        if (value < tableBody[0][indexCol]) return 'text-red-600';
+        if (Number(value) >= Number(tableBody[0][indexCol]))
+          return 'text-green-500';
+        if (Number(value) < Number(tableBody[0][indexCol]))
+          return 'text-red-600';
       }
       if (key == 'Polar FM') {
         if (tableBody.length === 7) {
-          if (value <= tableBody[2][indexCol]) return 'text-green-500';
-          if (value > tableBody[2][indexCol]) return 'text-red-600';
+          if (Number(value) <= Number(tableBody[2][indexCol]))
+            return 'text-green-500';
+          if (Number(value) > Number(tableBody[2][indexCol]))
+            return 'text-red-600';
         } else {
           return 'text-red-600';
         }
